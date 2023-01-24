@@ -2,6 +2,7 @@ import os
 
 from employees_db import db
 from models import EmployeeModel
+from schemas import EmployeeSchema
 
 from dotenv import load_dotenv
 from flask import Flask
@@ -15,9 +16,8 @@ db.init_app(app)
 
 @app.get("/employees")
 def get_employees():
-    employees = db.session.execute(db.select(EmployeeModel)).scalars()
-    print([employee for employee in employees])
-    return str(employees)
+    employees = EmployeeModel.query.all()
+    return EmployeeSchema(many=True).dump(employees)
 
 if __name__ == '__main__':
     app.run()
