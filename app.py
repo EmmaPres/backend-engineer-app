@@ -1,6 +1,7 @@
 import os
 
 from employees_db import db
+from models import EmployeeModel
 
 from dotenv import load_dotenv
 from flask import Flask
@@ -14,7 +15,7 @@ db.init_app(app)
 
 @app.get("/employees")
 def get_employees():
-    employees = db.session.execute("select * from employees").scalars()
+    employees = db.session.execute(db.select(EmployeeModel)).scalars()
     print([employee for employee in employees])
     return str(employees)
 
