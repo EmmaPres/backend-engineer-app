@@ -2,7 +2,7 @@
 
 ### Setting up the App
 1. Download the zip file or clone the repo from https://github.com/EmmaPres/backend-engineer-app
-2. Ensure you are using Python 3.10 or later.
+2. Ensure you are using Python 3.10 or later, and have pip installed.
 3. Open the project in an IDE of your choice, or navigate to the project in the command line, and install the necessary packages:
 ```
 $ pip install -r requirements.txt
